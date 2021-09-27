@@ -31,7 +31,7 @@ if file_buffer:
         # Convierte la serie a un array
         array = datos.to_numpy()
         array = np.delete(array, [0])
-        array = array = array.astype('int32') # Convierte el array a ints, que originalmente eran strings
+        array = array = array.astype('float64') # Convierte el array a ints, que originalmente eran strings
         array = np.sort(array) # Acomoda los numeros de menor a mayor
 
         # Escoge el valor mas grande y el mas pequeño del array
@@ -171,7 +171,8 @@ if file_buffer:
         # ---- Mediana ----
         mediana = np.median(array)
         # ---- Moda ----
-        moda = np.bincount(array).argmax()
+        uniqw, inverse = np.unique(array, return_inverse=True)
+        moda = np.bincount(inverse).argmax()
         # ---- Media de la Frecuencia ----
         media_frecuencia = 0
 
