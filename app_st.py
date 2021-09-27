@@ -9,6 +9,7 @@ import streamlit as st
 import io
 import seaborn as sns
 
+st.set_page_config(page_title='Estadistica y Probabilidad', page_icon='icono.png')
 sns.set_style("darkgrid", {"axes.facecolor": ".9"})
 sns.set_context('paper')
 
